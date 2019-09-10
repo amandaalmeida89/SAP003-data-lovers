@@ -1,1 +1,1 @@
-oi
+const OI = "ois"
