@@ -4,20 +4,21 @@ const yearInjuries = () =>
     .map(inj => new Date(inj.Year))
     .map(date => date.getFullYear());
 
-
 const getInjuries = () =>
-  Object.keys(INJURIES[0]).filter(item => item != "Year")
+  Object.keys(INJURIES[0]).filter(item => item != "Year");
 
+const valueInjuries = () => 
+  INJURIES.map(elem => {
+    delete elem.Year;
+    return Object.values(elem);
+  })
 
-// let a = INJURIES.values();
-// for (let valores of a) {
-//   // console.log(valores)
-// }
 
 window.filterData = {
   yearInjuries: yearInjuries,
   getInjuries: getInjuries,
- 
+  valueInjuries: valueInjuries,
+
 };
 
 window.sortData = {
@@ -25,3 +26,6 @@ window.sortData = {
 
 window.computeStats = {
 };
+
+
+
