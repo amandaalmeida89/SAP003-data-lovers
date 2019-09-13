@@ -10,11 +10,9 @@ h1 {
 
 .flexContainer {
   display: inline-block;
-  justify-content: center;
 }
 
 #result {
-  border: 1px solid rgb(194, 184, 184);
   display: inline-block;
   width: 50%;
 }
