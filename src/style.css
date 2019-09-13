@@ -1,7 +1,14 @@
 h1 {
   text-align: center;
+  background-color:rgb(17,46,81);
+  color: white;
 }
 
-table, th, td {
-  border: 1px solid black;
+.flexContainer {
+  display: inline-block;
+  justify-content: center;
+}
+
+#result {
+  display: block;
 }
