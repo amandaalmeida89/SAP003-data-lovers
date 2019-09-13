@@ -4,6 +4,7 @@ const yearInjuries = () =>
     .map(inj => new Date(inj.Year))
     .map(date => date.getFullYear());
 
+    //informa os nomes dos transportes
 const getInjuries = () =>
   Object.keys(INJURIES[0]).filter(item => item != "Year");
 
