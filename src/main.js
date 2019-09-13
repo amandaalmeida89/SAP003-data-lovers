@@ -32,10 +32,28 @@ window.addEventListener("load", fillYears);
 
 //Escuta as funções no click
 document.getElementById("btn").addEventListener("click", () => {
-  const yearSelected = yearSelect.value;
+  const yearSelected = pegarVariosAnos();
   const transportSelected = transportSelect.value;
-  const result = window.filterData.filterByYear(yearSelected);
-  document.getElementById("result").innerText = "This mode of transport had in the selected year " +  result[transportSelected] + " people injured.";
+  const result = window.filterData.filterByYears(yearSelected);
+  for(const roso of result){
+    const allResults = document.createElement("div")
+    allResults.innerText = roso.Year + "     " + transportSelected + "     " + roso[transportSelected];
+    document.getElementById("result").appendChild(allResults);
+  }
   event.preventDefault();
 })
+//Retorna os anos em arrays
+const pegarVariosAnos = () => {
+  const year = yearSelect;
+  const arr = [];
+  const options = year && year.options;
+  
+  for(const opt of options) {
+    if (opt.selected) {
+      arr.push(opt.value);
+    }
+  }
+  return arr;
+}
+
 
