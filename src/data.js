@@ -10,7 +10,7 @@ const getInjuries = () =>
 const filterByYears = years =>
   INJURIES.filter(item => {
     const date = new Date(item.Year);
-    return years.includes( date.getFullYear().toString() );
+    return years.includes(date.getFullYear().toString());
   })
 
 window.filterData = {

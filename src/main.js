@@ -34,10 +34,10 @@ window.addEventListener("load", fillYears);
 document.getElementById("btn").addEventListener("click", () => {
   const yearSelected = pegarVariosAnos();
   const transportSelected = transportSelect.value;
-  const result = window.filterData.filterByYears(yearSelected);
-  for(const roso of result){
-    const allResults = document.createElement("div")
-    allResults.innerText = roso.Year + "     " + transportSelected + "     " + roso[transportSelected];
+  const results = window.filterData.filterByYears(yearSelected);
+  for (const result of results) {
+    const allResults = document.createElement("li")
+    allResults.innerText = `<p>  ${result.Year + " " + transportSelected + " " + result[transportSelected]}. <p>`;
     document.getElementById("result").appendChild(allResults);
   }
   event.preventDefault();
@@ -47,8 +47,8 @@ const pegarVariosAnos = () => {
   const year = yearSelect;
   const arr = [];
   const options = year && year.options;
-  
-  for(const opt of options) {
+
+  for (const opt of options) {
     if (opt.selected) {
       arr.push(opt.value);
     }

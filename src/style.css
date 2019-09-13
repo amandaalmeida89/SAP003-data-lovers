@@ -2,6 +2,10 @@ h1 {
   text-align: center;
   background-color:rgb(17,46,81);
   color: white;
+  size: 30px;
+  padding: 8px;
+  border: 1px solid grey;
+  margin-top: -10px;
 }
 
 .flexContainer {
@@ -11,4 +15,21 @@ h1 {
 
 #result {
   display: block;
+}
+
+#year {
+  text-align: center;
+  width: 50px;
+}
+
+#btn, #clear {
+  background-color: #0071bc;
+  color: white;
+  border-radius: 6px;
+  font-size: 20px;
+  width: 130px;
+}
+#year {
+  list-style-type: none;
+  vertical-align: top;
 }
