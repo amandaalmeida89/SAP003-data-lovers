@@ -37,7 +37,7 @@ document.getElementById("btn").addEventListener("click", () => {
   const results = window.filterData.filterByYears(yearSelected);
   for (const result of results) {
     const allResults = document.createElement("li")
-    allResults.innerText = `<p>  ${result.Year + " " + transportSelected + " " + result[transportSelected]}. <p>`;
+    allResults.innerText = result.Year + " " + transportSelected + " " + result[transportSelected];
     document.getElementById("result").appendChild(allResults);
   }
   event.preventDefault();
