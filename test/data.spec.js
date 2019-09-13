@@ -1,11 +1,12 @@
 require("../src/data.js");
 
-describe("example", () => {
+describe("filterData", () => {
+
   it("is a function", () => {
-    expect(typeof example).toBe("function");
+    expect(typeof filterData).toBe("function");
   });
 
-  it("returns `example`", () => {
-    expect(example()).toBe("example");
+  it("should return \"2443175\" for \"Total_Injured_Persons\" with year 2015 ", () => {
+    expect(filterData(2015,"Total_Injured_Persons")).toBe("2443175");
   });
 });
