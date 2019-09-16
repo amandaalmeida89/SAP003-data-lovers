@@ -7,7 +7,7 @@
     },
     "extends": "eslint:recommended",
     "globals": {
-      "cipher": false
+      "filterData": false
     },
     "rules": {
       "indent": ["error", 2],

@@ -1,5 +1,4 @@
 const yearSelect = document.getElementById("fillYears");
-const listInjuries = document.getElementById("results");
 const divResults = document.getElementById("results");
 
 const createYearsOption = a => {
@@ -43,16 +42,14 @@ const createCard = b => {
 const injuriesScreen = () => {
   const getObjectInjuries = window.filterData.accidentGrouping();
   getObjectInjuries.forEach(createCard);
-}
+};
 
 window.addEventListener("load", injuriesScreen);
-
 
 document.getElementById("fillYears").addEventListener("change", () => {
   const yearSelected = yearSelect.value;
   const results = window.filterData.accidentGrouping(yearSelected);
-  divResults.innerHTML = '';
+  divResults.innerHTML = " ";
   results.forEach(createCard);
   event.preventDefault();
-})
-
+});

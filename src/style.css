@@ -4,7 +4,6 @@
   color: white;
   size: 30px;
   padding: 8px;
-  border: 1px solid grey;
   margin-top: -10px;
 }
 
@@ -13,6 +12,11 @@
   text-align: center;
   font-size: 30px;
   font: normal;
+}
+
+select {
+  height: 30px;
+  font-size: 20px;
 }
 
 .flexContainer {
@@ -32,5 +36,5 @@
   color: white;
   width: 15%;
   height: 15%;
-  margin: 1%;
+  margin-bottom: 1%;
 }
