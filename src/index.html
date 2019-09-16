@@ -5,23 +5,26 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <h1>SECURITY ADVISORY</h1>
+    <div class="nameSite">
+      <h1>SECURITY ADVISORY</h1>
+    </div>
   </header>
   <main>
-    <div class="flexContainer">
-      <form action="">
-        <label for="year">Filter by year</label>
-        <select name="yers[]" multiple="multiple" id="year"></select>
-        <label for="transport">Filter by transport</label>
-        <select id="transport"></select>
-        <input type="submit" id="btn" value="Submit">
-        <input type="submit" id="clear" value="Clear Search">
-      </form>
-      <ul id="result"></ul>
+    <form>
+      <div class="select">
+        <label for="fillYears">Filter by year</label>
+        <div class="textSelect">
+          <select id="fillYears">
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="flexContainer" id="results">
     </div>
     <script src="data/injuries/injuries.js"></script>
     <script src="data.js"></script>

@@ -1,59 +1,58 @@
-const yearSelect = document.getElementById("year");
-const transportSelect = document.getElementById("transport");
+const yearSelect = document.getElementById("fillYears");
+const listInjuries = document.getElementById("results");
+const divResults = document.getElementById("results");
 
-//cria os options dentro do primeiro seletor
-const createYearsOption = year => {
+const createYearsOption = a => {
   const newOption = document.createElement("option");
-  newOption.innerText = year;
-  newOption.value = year;
+  newOption.innerText = a.year;
+  newOption.value = a.year;
   yearSelect.appendChild(newOption);
 };
-//Popular os anos dentro do primeiro select
-const fillYears = () => {
-  const years = window.filterData.yearInjuries();
+
+const popularYears = () => {
+  const years = window.filterData.accidentGrouping();
   years.forEach(createYearsOption);
 };
 
-//cria os opstions dentro do segundo seletor
-const createTransportOption = transport => {
-  const newOption = document.createElement("option");
-  newOption.innerText = transport;
-  newOption.value = transport;
-  transportSelect.appendChild(newOption);
-};
-//Popula os options dentro do segundo select
-const fillTransport = () => {
-  const transports = window.filterData.getInjuries();
-  transports.forEach(createTransportOption);
-}
-//Escuta as funções no evento load
-window.addEventListener("load", fillTransport);
-window.addEventListener("load", fillYears);
+window.addEventListener("load", popularYears);
 
-//Escuta as funções no click
-document.getElementById("btn").addEventListener("click", () => {
-  const yearSelected = pegarVariosAnos();
-  const transportSelected = transportSelect.value;
-  const results = window.filterData.filterByYears(yearSelected);
-  for (const result of results) {
-    const allResults = document.createElement("li")
-    allResults.innerText = result.Year + " " + transportSelected + " " + result[transportSelected];
-    document.getElementById("result").appendChild(allResults);
-  }
+const createCard = b => {
+  const div = document.createElement("div");
+  const p = document.createElement("p");
+  const pOne = document.createElement("p");
+  const pTwo = document.createElement("p");
+  const pThree = document.createElement("p");
+  const pFour = document.createElement("p");
+  const pFive = document.createElement("p");
+  p.innerText = "Year: " + b.year;
+  pOne.innerText = "Airplane: " + b.airplane;
+  pTwo.innerText = "Boat: " + b.boat;
+  pThree.innerText = "Car: " + b.auto;
+  pFour.innerText = "Motorcycle: " + b.motorcycle;
+  pFive.innerText = "Bicycle: " + b.bicycle;
+  div.appendChild(p);
+  div.appendChild(pOne);
+  div.appendChild(pTwo);
+  div.appendChild(pThree);
+  div.appendChild(pFour);
+  div.appendChild(pFive);
+  div.setAttribute("class", "a");
+  divResults.appendChild(div);
+};
+
+const injuriesScreen = () => {
+  const getObjectInjuries = window.filterData.accidentGrouping();
+  getObjectInjuries.forEach(createCard);
+}
+
+window.addEventListener("load", injuriesScreen);
+
+
+document.getElementById("fillYears").addEventListener("change", () => {
+  const yearSelected = yearSelect.value;
+  const results = window.filterData.accidentGrouping(yearSelected);
+  divResults.innerHTML = '';
+  results.forEach(createCard);
   event.preventDefault();
 })
-//Retorna os anos em arrays
-const pegarVariosAnos = () => {
-  const year = yearSelect;
-  const arr = [];
-  const options = year && year.options;
-
-  for (const opt of options) {
-    if (opt.selected) {
-      arr.push(opt.value);
-    }
-  }
-  return arr;
-}
-
 
