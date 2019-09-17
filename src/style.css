@@ -8,8 +8,8 @@
   padding: 0.5px;
   margin-top: -8px; 
 }
-
 .select {
+  align-items: baseline;
   display: flex;
   justify-content: space-around;
   margin: 28%;
@@ -34,10 +34,10 @@ select {
   color: white;
 }
 
-
 .flexContainer {
   display: flex;
   justify-content: space-around;
+  flex-direction: row;
   font-family: 'Lora', serif;
   font-size: 20px;
   text-align: center;
@@ -53,6 +53,18 @@ select {
   width: 15%;
   height: 15%;
   margin-bottom: 1%;
+}
+
+@media (max-width: 1366px){
+  .select {
+    margin: 23%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-size: 25px;
+  }
+  .select > select {
+    font-size: 25px;
+  }
 }
 
 @media (max-width: 1280px) { 
