@@ -38,3 +38,26 @@ select {
   height: 15%;
   margin-bottom: 1%;
 }
+
+@media (max-width: 1280px) { 
+  .nameSite {
+    font-size: 30px;
+  }
+  .select {
+    font-size: 60px;
+    text-align: center;
+  }
+  .select > select {
+    border: 1px solid gray;
+    height: 60px;
+    font-size: 30px;
+  }
+  .a{
+    width: 80%;
+    height: 80%;
+    margin-bottom:2%;
+  }
+  .flexContainer {
+    font-size: 50px;
+  }
+}
