@@ -3,7 +3,7 @@ import {INJURIES} from "./data/injuries/injuries.js";
 const data = INJURIES;
 const firstYearSelect = document.getElementById("firstFillYears");
 const secondYearSelect = document.getElementById("secondFillYears");
-const form = document.getElementById("filterSelect")
+const form = document.getElementById("filterSelect");
 const divResults = document.getElementById("results");
 
 const createFirstsOption = a => {
