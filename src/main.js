@@ -1,23 +1,40 @@
 import {INJURIES} from "./data/injuries/injuries.js";
+
 const data = INJURIES;
-const yearSelect = document.getElementById("fillYears");
+const firstYearSelect = document.getElementById("firstFillYears");
+const secondYearSelect = document.getElementById("secondFillYears");
+const form = document.getElementById("filterSelect")
 const divResults = document.getElementById("results");
 
-const createYearsOption = a => {
+const createFirstsOption = a => {
   const newOption = document.createElement("option");
   newOption.innerText = a.year;
   newOption.value = a.year;
-  yearSelect.appendChild(newOption);
+  firstYearSelect.appendChild(newOption);
 };
 
-const popularYears = () => {
+const popularFirstYears = () => {
   const years = window.filterData.accidentGrouping(data);
-  years.forEach(createYearsOption);
+  years.forEach(createFirstsOption);
 };
 
-window.addEventListener("load", popularYears);
+window.addEventListener("load", popularFirstYears);
 
-const createCard = b => {
+const createSecondOption = b => {
+  const newOption = document.createElement("option");
+  newOption.innerText = b.year;
+  newOption.value = b.year;
+  secondYearSelect.appendChild(newOption);
+};
+
+const popularSecondYears = () => {
+  const years = window.filterData.accidentGrouping(data);
+  years.forEach(createSecondOption);
+};
+
+window.addEventListener("load", popularSecondYears);
+
+const createCard = c => {
   const div = document.createElement("div");
   const p = document.createElement("p");
   const pOne = document.createElement("p");
@@ -25,12 +42,12 @@ const createCard = b => {
   const pThree = document.createElement("p");
   const pFour = document.createElement("p");
   const pFive = document.createElement("p");
-  p.innerText = "Year: " + b.year;
-  pOne.innerText = "Airplane: " + b.airplane;
-  pTwo.innerText = "Boat: " + b.boat;
-  pThree.innerText = "Car: " + b.auto;
-  pFour.innerText = "Motorcycle: " + b.motorcycle;
-  pFive.innerText = "Bicycle: " + b.bicycle;
+  p.innerText = "Year: " + c.year;
+  pOne.innerText = "Airplane: " + c.airplane;
+  pTwo.innerText = "Boat: " + c.boat;
+  pThree.innerText = "Car: " + c.auto;
+  pFour.innerText = "Motorcycle: " + c.motorcycle;
+  pFive.innerText = "Bicycle: " + c.bicycle;
   div.appendChild(p);
   div.appendChild(pOne);
   div.appendChild(pTwo);
@@ -48,9 +65,10 @@ const injuriesScreen = () => {
 
 window.addEventListener("load", injuriesScreen);
 
-document.getElementById("fillYears").addEventListener("change", () => {
-  const yearSelected = yearSelect.value;
-  const results = window.filterData.accidentGrouping(data, yearSelected);
+form.addEventListener("submit", () => {
+  const firstYearSelected = firstYearSelect.value;
+  const secondYearSelected = secondYearSelect.value;
+  const results = window.filterData.accidentGrouping(data, firstYearSelected, secondYearSelected);
   divResults.innerHTML = " ";
   results.forEach(createCard);
   event.preventDefault();

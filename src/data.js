@@ -1,5 +1,5 @@
-export const accidentGrouping = (data, filteredYear) =>
-  data.filter(item => filteredYear ? (new Date(item.Year).getFullYear()) == filteredYear : true)
+export const accidentGrouping = (data, filteredFirstYear, filteredSecondYear) =>
+  data.filter(item => filteredFirstYear && filteredSecondYear ? (new Date(item.Year).getFullYear() <= filteredSecondYear && new Date(item.Year).getFullYear() >= filteredFirstYear): true)
     .map(item => {
       return {
         year: new Date(item.Year).getFullYear(),
