@@ -1,3 +1,5 @@
+import {INJURIES} from "./data/injuries/injuries.js";
+const data = INJURIES;
 const yearSelect = document.getElementById("fillYears");
 const divResults = document.getElementById("results");
 
@@ -9,7 +11,7 @@ const createYearsOption = a => {
 };
 
 const popularYears = () => {
-  const years = window.filterData.accidentGrouping();
+  const years = window.filterData.accidentGrouping(data);
   years.forEach(createYearsOption);
 };
 
@@ -40,7 +42,7 @@ const createCard = b => {
 };
 
 const injuriesScreen = () => {
-  const getObjectInjuries = window.filterData.accidentGrouping();
+  const getObjectInjuries = window.filterData.accidentGrouping(data);
   getObjectInjuries.forEach(createCard);
 };
 
@@ -48,7 +50,7 @@ window.addEventListener("load", injuriesScreen);
 
 document.getElementById("fillYears").addEventListener("change", () => {
   const yearSelected = yearSelect.value;
-  const results = window.filterData.accidentGrouping(yearSelected);
+  const results = window.filterData.accidentGrouping(data, yearSelected);
   divResults.innerHTML = " ";
   results.forEach(createCard);
   event.preventDefault();
