@@ -1,4 +1,5 @@
-require("../src/data.js");
+import {INJURIES} from "../src/data/injuries/injuries";
+import {accidentGrouping} from "../src/data.js";
 
 describe("filterData", () => {
 
@@ -7,13 +8,18 @@ describe("filterData", () => {
   });
 
   it("should return \"airplane: 352, auto: 2986783, bicycle: 51160, boat: 4355, motorcycle: 57723, year: 2000\" with year 2000 ", () => {
-    expect(window.filterData.accidentGrouping(2000)).toBe([{
+    expect(accidentGrouping(INJURIES, 2000, 2000)).toMatchObject([{
       airplane: 352,
       auto: 2986783,
       bicycle: 51160,
       boat: 4355,
       motorcycle: 57723,
       year: 2000}]);
+  });
+
+  it("should return all years", () => {
+    const result = accidentGrouping(INJURIES);
+    expect(result.length).toBe(INJURIES.length);
   });
 });
 

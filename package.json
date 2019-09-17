@@ -7,14 +7,17 @@
     "htmlhint": "htmlhint src/*.html test/*.html",
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint && npm run htmlhint",
-    "test": "jest",
+    "test": "jest --coverage",
     "start": "serve src/"
   },
   "dependencies": {
-    "eslint": "^5.9.0",
-    "eslint-plugin-jest": "^22.1.2",
-    "htmlhint": "^0.10.1",
-    "jest": "^23.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.4.0",
+    "eslint-plugin-jest": "^22.17.0",
+    "htmlhint": "^0.11.0",
+    "jest": "^24.9.0",
     "serve": "^11.0.0"
   }
 }

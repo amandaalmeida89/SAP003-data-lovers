@@ -11,22 +11,28 @@
 <body>
   <header>
     <div class="nameSite">
-      <h1>SECURITY ADVISORY</h1>
+      <h1> Security Advisory</h1>
     </div>
   </header>
   <main>
-    <form>
+    <form id="filterSelect">
       <div class="select">
-        <label for="fillYears">Filter by year</label>
-          <select id="fillYears">
-          </select>
+        <label for="firstFillYears">Select First Year</label>
+        <select id="firstFillYears">
+          <option value="">All years</option>
+        </select>
+        <label for="secondFillYears">Select Second Year</label>
+        <select id="secondFillYears">
+          <option value="">All years</option>
+          <input type="submit" id="btn" value="Search">
+        </select>
       </div>
     </form>
     <div class="flexContainer" id="results">
     </div>
-    <script src="data/injuries/injuries.js"></script>
-    <script src="data.js"></script>
-    <script src="main.js"></script>
+    <script type="module" src="data/injuries/injuries.js"></script>
+    <script type="module" src="data.js"></script>
+    <script type="module" src="main.js"></script>
   </main>
 </body>
 
