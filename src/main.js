@@ -1,4 +1,5 @@
 import {INJURIES} from "./data/injuries/injuries.js";
+window.data = INJURIES;
 
 const data = INJURIES;
 const firstYearSelect = document.getElementById("firstFillYears");
