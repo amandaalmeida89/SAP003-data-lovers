@@ -16,5 +16,10 @@ describe("filterData", () => {
       motorcycle: 57723,
       year: 2000}]);
   });
+
+  it("should return all years", () => {
+    const result = accidentGrouping(INJURIES);
+    expect(result.length).toBe(INJURIES.length);
+  });
 });
 
