@@ -7,10 +7,10 @@ describe("filterData", () => {
     expect(typeof filterData).toBe("object");
   });
 
-  it("should return \"airplane: 352, auto: 2986783, bicycle: 51160, boat: 4355, motorcycle: 57723, year: 2000\" with year 2000", () => {
+  it("should return \"airplane: 359, auto: 3064401, bicycle: 51160, boat: 4355, motorcycle: 57723, year: 2000\" with year 2000", () => {
     expect(accidentGrouping(INJURIES, 2000, 2000)).toMatchObject([{
-      airplane: 352,
-      auto: 2986783,
+      airplane: 359,
+      auto: 3064401,
       bicycle: 51160,
       boat: 4355,
       motorcycle: 57723,

@@ -15,7 +15,6 @@ window.filterData = {
   accidentGrouping: accidentGrouping,
 };
 
-
 window.sortData = {
 };
 

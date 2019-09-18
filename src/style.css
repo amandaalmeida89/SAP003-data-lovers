@@ -36,13 +36,10 @@ select {
 
 .flexContainer {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  font-family: 'Lora', serif;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   font-size: 20px;
   text-align: center;
-  flex-wrap: wrap;
-  align-content: space-around;
 }
 
 .a {
@@ -55,32 +52,17 @@ select {
   margin-bottom: 1%;
 }
 
-@media (max-width: 1366px){
-  .select {
-    margin: 23%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-    font-size: 25px;
-  }
-  .select > select {
-    font-size: 25px;
-  }
-}
-
-@media (max-width: 1280px) { 
+@media (min-width: 768px) and (max-width: 979px) { 
   .nameSite {
     font-size: 30px;
   }
   .select {
     font-size: 40px;
-    margin: 2%;
-    margin-top: 5%;
-    margin-bottom: 10%;
   }
   .select > select {
     border: 1px solid gray;
     height: 50px;
-    font-size: 25px;
+    font-size: 35px;
   }
   .select > input {
     font-size: 30px;
