@@ -8,11 +8,11 @@ const form = document.getElementById("filterSelect");
 const divResults = document.getElementById("results");
 
 const pupulateYears = () => {
-  const years = window.filterData.accidentGrouping(data);
-  const options = years.map(item => `<option value="${item.year}">${item.year}</option>`).join("");
+  const years = window.filterData(data);
+  const options = years.map(item => `<option value="${item.year}">${item.year}</option>`);
 
-  firstYearSelect.innerHTML = options;
-  secondYearSelect.innerHTML = options;
+  firstYearSelect.innerHTML = options.join("");
+  secondYearSelect.innerHTML = options.reverse().join("");
 };
 
 const createCards = items => {
@@ -31,7 +31,7 @@ const createCards = items => {
 };
 
 const injuriesScreen = () => {
-  const getObjectInjuries = window.filterData.accidentGrouping(data);
+  const getObjectInjuries = window.filterData(data);
   createCards(getObjectInjuries);
 };
 
@@ -41,7 +41,7 @@ window.addEventListener("load", injuriesScreen);
 form.addEventListener("submit", () => {
   const firstYearSelected = firstYearSelect.value;
   const secondYearSelected = secondYearSelect.value;
-  const results = window.filterData.accidentGrouping(data, firstYearSelected, secondYearSelected);
+  const results = window.filterData(data, firstYearSelected, secondYearSelected);
   createCards(results);
   event.preventDefault();
 });
