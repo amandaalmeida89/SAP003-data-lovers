@@ -1,18 +1,31 @@
+body {
+  background-color: #dddddd;
+}
+
+.screen {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+}
+
 .nameSite {
   text-align: center;
   background-color:rgb(17,46,81);
   color:white;
-  font-weight: 700;
   font-size: 24px;
-  line-height: 1.3em/31px;
-  padding: 0.5px;
+  padding: 0.1px;
   margin-top: -8px; 
 }
+
+.image {
+  width: 100%;
+}
+
 .select {
   align-items: baseline;
   display: flex;
-  justify-content: space-around;
-  margin: 28%;
+  justify-content: space-evenly;
+  margin: 25%;
   margin-top: 5%;
   margin-bottom: 10%;
   font-size: 25px;
@@ -23,46 +36,67 @@ select {
   font-size: 18px;
 }
 
-.select > input {
+select:focus {
+  outline: none;
+}
+
+.select >input:focus {
+  outline: none;
+}
+
+.select >input {
   font-size: 25px;
   width: 100px;
   height: 40px;
   border-radius: 6px;
   border: none;
-  background-color: #0071bc;
-  box-shadow: 3px 3px #205493;
+  font-family: serif;
+  background: #0071bc;
+  box-shadow: 3px 3px 0 2px #205493;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.5);
   color: white;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.select >input:active {
+  box-shadow: 0 0 0 0 #205493, inset 4px 4px 4px #205493;
+  transform: translate(4px, 4px);
 }
 
 .flexContainer {
-  display: flex;
+  display: flex; 
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   font-size: 20px;
-  text-align: center;
+  text-align: center; 
 }
 
-.a {
+ .a {
   border-radius: 30px;
   background-color: #0071bc;
   color: white;
   box-shadow: 4px 4px #205493;
   width: 15%;
   height: 15%;
+  margin-right: 1%;
   margin-bottom: 1%;
-}
+} 
 
-@media (min-width: 768px) and (max-width: 979px) { 
-  .nameSite {
-    font-size: 30px;
+@media (max-width: 1024px) { 
+  .screen {
+    width: 100%;
   }
   .select {
-    font-size: 40px;
+    font-size: 30px;
+    margin: 2%;
+    margin-top: 5%;
+    margin-bottom: 10%;
   }
   .select > select {
     border: 1px solid gray;
     height: 50px;
-    font-size: 35px;
+    font-size: 25px;
   }
   .select > input {
     font-size: 30px;
