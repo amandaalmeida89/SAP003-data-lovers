@@ -13,8 +13,8 @@ const pupulateYears = () => {
   const years = window.filterData(data);
   const options = years.map(item => `<option value="${item.year}">${item.year}</option>`);
 
-  firstYearSelect.innerHTML = options.join("");
-  secondYearSelect.innerHTML = options.reverse().join("");
+  firstYearSelect.innerHTML += options.join("");
+  secondYearSelect.innerHTML += options.reverse().join("");
 };
 
 const createCards = items => {
@@ -37,7 +37,7 @@ const injuriesScreen = () => {
   createCards(getObjectInjuries);
 };
 
-window.addEventListener("load", pupulateYears);
+window.addEventListener("load", pupulateYears)
 window.addEventListener("load", injuriesScreen);
 
 form.addEventListener("submit", () => {
