@@ -1,4 +1,4 @@
-import {INJURIES} from "./data/injuries/injuries.js";
+import { INJURIES } from "./data/injuries/injuries.js";
 window.data = INJURIES;
 
 const data = INJURIES;
@@ -37,7 +37,7 @@ const injuriesScreen = () => {
   createCards(getObjectInjuries);
 };
 
-window.addEventListener("load", pupulateYears)
+window.addEventListener("load", pupulateYears);
 window.addEventListener("load", injuriesScreen);
 
 form.addEventListener("submit", () => {
@@ -47,11 +47,11 @@ form.addEventListener("submit", () => {
   const sortOrderSelected = selectSortOrder.value;
   const results = window.filterData(data, firstYearSelected, secondYearSelected);
   const results2 = window.sortData(results, sortBySelected, sortOrderSelected);
-    if (secondYearSelected >= firstYearSelected) {
-      createCards(results2);
-    }
-    else {
-      alert("Second year is expected to be at or above");
-    }
+  if (secondYearSelected >= firstYearSelected) {
+    createCards(results2);
+  }
+  else {
+    alert("Second year is expected to be at or above");
+  }
   event.preventDefault();
 });
