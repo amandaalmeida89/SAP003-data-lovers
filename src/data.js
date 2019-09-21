@@ -19,6 +19,9 @@ export const filterData = (data, filteredFirstYear, filteredSecondYear) =>
 
   const sortData = (data, sortBy, sortOrder) => {
     return data.sort((a,b) => {
+      if(!sortBy && !sortOrder) {
+        return 1;
+      }
       if (sortOrder == "desc") {
         if (a[sortBy] < b[sortBy]) {
           return 1;

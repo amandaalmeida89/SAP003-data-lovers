@@ -9,46 +9,56 @@
 
 <body>
   <div class="screen">
-  <header>
-    <div class="nameSite">
-      <h1> Security Advisory</h1>
-    </div>
-    <div class="imageSafety">
-      <img src="Safety copy.png" alt="" class="image">
-    </div>
-  </header>
-  <main>
-    <form id="filterSelect">
-      <div class="select">
-        <label for="firstFillYears">Select First Year</label>
-        <select id="firstFillYears">
-        </select>
-        <label for="secondFillYears">Select Second Year</label>
-        <select id="secondFillYears">
-        </select>
-        <select id="sortBy">
-          <option value="year">Year</option>
-          <option value="airplane">Airplane</option>
-          <option value="boat">Boat</option>
-          <option value="auto">Auto</option>
-          <option value="motorcycle">Motorcycle</option>
-          <option value="bicycle">Bicycle</option>
-        </select>
-        <select id="sortOrder">
-        <option value="asc">Ascending</option>
-        <option value="desc">Descending</option>
-        </select>
-       
-        <input type="submit" id="btn" value="Search">
+    <header>
+      <div class="nameSite">
+        <h1> Security Advisory</h1>
       </div>
-    </form>
-    <div class="flexContainer" id="results">
-    </div>
-    <script type="module" src="data/injuries/injuries.js"></script>
-    <script type="module" src="data.js"></script>
-    <script type="module" src="main.js"></script>
-  </main>
-</div>
+      <div class="imageSafety">
+        <img src="Safety copy.png" alt="" class="image">
+      </div>
+    </header>
+    <main>
+      <form id="filterSelect">
+        <div class="selectYears">
+          <select id="firstFillYears">
+            <option value="" disabled selected>First Year</option>
+          </select>
+          <select id="secondFillYears">
+            <option value="" disabled selected>Second Year</option>
+          </select>
+        </div>
+        <div class="selectOrder">
+          <select id="sortBy">
+            <option value="" disabled selected>Order By</option>
+            <option value="year">Year</option>
+            <option value="airplane">Airplane</option>
+            <option value="boat">Boat</option>
+            <option value="auto">Auto</option>
+            <option value="motorcycle">Motorcycle</option>
+            <option value="bicycle">Bicycle</option>
+          </select>
+          <select id="sortOrder">
+            <option value="" disabled selected>Ordering</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+        <div class="search">
+          <input type="submit" id="btn" value="Search">
+        </div>
+      </form>
+      <div class="flexContainer" id="results">
+      </div>
+      <div class="baseboard">
+        <footer>
+          <p>Copyright &copy; 2019 - by Amanda Nascimento <a target="new" href="https://github.com/amandaalmeida89"><img src="github.png" alt=""></a>  Camila Suehiro <a target="new" href="https://github.com/camilasuehiro"><img src="github.png" alt=""></a></p>
+        </footer>
+      </div>
+      <script type="module" src="data/injuries/injuries.js"></script>
+      <script type="module" src="data.js"></script>
+      <script type="module" src="main.js"></script>
+    </main>
+  </div>
 </body>
 
 </html>
