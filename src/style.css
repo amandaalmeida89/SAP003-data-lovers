@@ -117,6 +117,7 @@ select:focus {
     margin-bottom: 5%;
   }
 }
+
 @media (max-width: 1024px) {
   .screen {
     width: 100%;
