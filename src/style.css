@@ -24,7 +24,7 @@ body {
 .selectYears {
   display: flex;
   display: inline-block;
-  margin: 18.3%;
+  margin: 21.5%;
   margin-top: 5%;
   margin-bottom: 2%;
   height: 40px;
@@ -107,9 +107,9 @@ select:focus {
   background-color: #f9c642;
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 1025px) and (max-width: 1500px) {
   .selectYears {
-    margin: 23.5%;
+    margin: 18.5%;
     margin-top: 5%;
     margin-bottom: 3%;
   }

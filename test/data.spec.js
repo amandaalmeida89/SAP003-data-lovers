@@ -1,5 +1,5 @@
-import {INJURIES} from "../src/data/injuries/injuries";
-import {filterData} from "../src/data.js";
+import { INJURIES } from "../src/data/injuries/injuries";
+import { filterData } from "../src/data.js";
 
 describe("filterData", () => {
 
@@ -14,7 +14,8 @@ describe("filterData", () => {
       bicycle: 51160,
       boat: 4355,
       motorcycle: 57723,
-      year: 2000}]);
+      year: 2000
+    }]);
   });
 
   it("should return all years", () => {
@@ -23,3 +24,58 @@ describe("filterData", () => {
   });
 });
 
+describe("sortData", () => {
+
+  it("is a function", () => {
+    expect(typeof sortData).toBe("function");
+  });
+
+  it("testing sort function", () => {
+    const mockeData = [
+      {
+        year: 2004
+      },
+      {
+        year: 2014
+      },
+      {
+        year: 2015
+      },
+      {
+        year: 2016
+      },
+    ];
+    expect(sortData(mockeData, "year", "desc")).toMatchObject(
+      [{
+        year: 2016
+      },
+      {
+        year: 2015
+      },
+      {
+        year: 2014
+      },
+      {
+        year: 2004
+      },
+      ]
+    );
+    expect(sortData(mockeData, "year", "asc")).toMatchObject(
+      [
+        {
+          year: 2004
+        },
+        {
+          year: 2014
+        },
+        {
+          year: 2015
+        },
+        {
+          year: 2016
+        },
+      ]
+    );
+    expect(sortData(mockeData)).toMatchObject(mockeData);
+  });
+});
