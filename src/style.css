@@ -112,13 +112,11 @@ select:focus {
     margin: 22.5%;
     margin-top: 5%;
     margin-bottom: 3%;
- }
+  }
   .search>input {
     margin-bottom: 5%;
+  }
 }
-}
-
-
 
 @media (max-width: 1024px) {
   .screen {
