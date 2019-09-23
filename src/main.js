@@ -23,7 +23,7 @@ const createCards = items => {
       <p>Year: ${item.year}</p>
       <p>Airplane: ${item.airplane || 0}</p>
       <p>Boat: ${item.boat || 0}</p>
-      <p>Car: ${item.auto || 0}</p>
+      <p>Auto: ${item.auto || 0}</p>
       <p>Motorcycle: ${item.motorcycle || 0}</p>
       <p>Bicycle: ${item.bicycle || 0}</p>
     </div>
@@ -45,10 +45,10 @@ form.addEventListener("submit", () => {
   const secondYearSelected = secondYearSelect.value;
   const sortBySelected = selectSortBy.value;
   const sortOrderSelected = selectSortOrder.value;
-  const results = window.filterData(data, firstYearSelected, secondYearSelected);
-  const results2 = window.sortData(results, sortBySelected, sortOrderSelected);
+  const resultsFilter = window.filterData(data, firstYearSelected, secondYearSelected);
+  const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
   if (secondYearSelected >= firstYearSelected) {
-    createCards(results2);
+    createCards(resultsOrder);
   }
   else {
     alert("Second year is expected to be at or above");
