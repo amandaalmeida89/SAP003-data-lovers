@@ -107,16 +107,13 @@ select:focus {
   background-color: #f9c642;
 }
 
-@media (max-width: 2560px) {
+@media (min-width: 2560px) {
   .selectYears {
-    margin: 25%;
+    margin: 22.5%;
     margin-top: 5%;
     margin-bottom: 3%;
  }
   .search>input {
-    font-size: 40px;
-    width: 150px;
-    height: 60px;
     margin-bottom: 5%;
 }
 }
