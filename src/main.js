@@ -6,7 +6,8 @@ const firstYearSelect = document.getElementById("firstFillYears");
 const secondYearSelect = document.getElementById("secondFillYears");
 const selectSortBy = document.getElementById("sortBy");
 const selectSortOrder = document.getElementById("sortOrder");
-const form = document.getElementById("filterSelect");
+const selectCalc = document.getElementById("totals");
+const form = document.getElementById("selects");
 const divResults = document.getElementById("results");
 
 const pupulateYears = () => {
@@ -20,7 +21,7 @@ const pupulateYears = () => {
 const createCards = items => {
   const cards = items.map(item => `
     <div class="a">
-      <p>Year: ${item.year}</p>
+      <p>Year: ${item.year || "All"}</p>
       <p>Airplane: ${item.airplane || 0}</p>
       <p>Boat: ${item.boat || 0}</p>
       <p>Auto: ${item.auto || 0}</p>
@@ -40,18 +41,35 @@ const injuriesScreen = () => {
 window.addEventListener("load", pupulateYears);
 window.addEventListener("load", injuriesScreen);
 
-form.addEventListener("submit", () => {
+form.addEventListener("change", () => {
   const firstYearSelected = firstYearSelect.value;
   const secondYearSelected = secondYearSelect.value;
   const sortBySelected = selectSortBy.value;
   const sortOrderSelected = selectSortOrder.value;
-  const resultsFilter = window.filterData(data, firstYearSelected, secondYearSelected);
-  const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
+  const calcSelected = selectCalc.value;
+
   if (secondYearSelected >= firstYearSelected) {
-    createCards(resultsOrder);
+    const resultsFilter = window.filterData(data, firstYearSelected, secondYearSelected);
+    if (calcSelected === "total") {
+      const total = window.computeStats.computeStatsTotal(resultsFilter);
+      createCards([total]);
+    }
+    else if (calcSelected === "average") {
+      const average = window.computeStats.computeStatsAverage(resultsFilter);
+      createCards([average]);
+    }
+    else {
+      const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
+      createCards(resultsOrder);
+    }
   }
   else {
     alert("Second year is expected to be at or above");
   }
   event.preventDefault();
 });
+
+
+
+const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
+
