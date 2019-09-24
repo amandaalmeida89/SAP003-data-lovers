@@ -19,62 +19,34 @@ body {
 
 .image {
   width: 100%;
+  margin-bottom: 10%;
 }
 
-.selectYears {
+.selectsStyle {
   display: flex;
-  display: inline-block;
-  margin: 21.5%;
-  margin-top: 5%;
-  margin-bottom: 2%;
-  height: 40px;
-  font-size: 18px;
-}
-
-.selectOrder {
-  display: flex;
-  display: inline-block;
-  text-align-last: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1%;
 }
 
 select {
+  margin-right: 2%;
+  width: 130px;
   height: 40px;
   font-size: 18px;
+  text-align-last: center;
 }
 
 select:focus {
   outline: none;
 }
 
-.search>input:focus {
-  outline: none;
-}
-
-.search>input {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  margin-bottom: 10%;
-  font-size: 25px;
-  color: white;
-  width: 100px;
-  height: 40px;
-  border-radius: 6px;
-  border: none;
-  font-family: serif;
-  background: rgb(29, 109, 166);
-  box-shadow: 3px 3px 0 2px #1d508f;
-  text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.5);
+.selectsStyle>input {
   cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.search>input:active {
-  box-shadow: 0 0 0 0 #205493, inset 4px 4px 4px #205493;
-  transform: translate(4px, 4px);
 }
 
 .flexContainer {
+  margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -107,36 +79,19 @@ select:focus {
   background-color: #f9c642;
 }
 
-@media (min-width: 1025px) and (max-width: 1500px) {
-  .selectYears {
-    margin: 18.5%;
-    margin-top: 5%;
-    margin-bottom: 3%;
-  }
-  .search>input {
-    margin-bottom: 5%;
-  }
-}
-
 @media (max-width: 1024px) {
   .screen {
     width: 100%;
   }
-  .selectYears {
-    margin: 2%;
-    margin-top: 5%;
-    margin-bottom: 10%;
-  }
-  .selectYears>select, .selectOrder>select {
-    border: 1px solid gray;
-    height: 50px;
-    font-size: 40px;
-  }
-  .search>input {
-    font-size: 40px;
-    width: 150px;
-    height: 60px;
-  }
+
+select {
+  border: 1px solid gray;
+  width: 245px;
+  height: 65px;
+  font-size: 40px;
+  margin-top: 20px;
+}
+
   .a {
     width: 70%;
     height: 70%;
@@ -146,7 +101,7 @@ select:focus {
     font-size: 40px;
   }
   .arrow {
-    bottom: 7%;
+    bottom: 8%;
   }
   .baseboard {
     font-size: 30px;

@@ -37,9 +37,50 @@ const sortData = (data, sortBy, sortOrder) => {
   });
 };
 
+const computeStatsTotal = (data) =>
+  data.reduce((accumulator, currentValue) => {
+    if (accumulator == 0) {
+      return currentValue;
+    }
+    return {
+      airplane: accumulator.airplane + currentValue.airplane,
+      boat: accumulator.boat + currentValue.boat,
+      auto: accumulator.auto + currentValue.auto,
+      motorcycle: accumulator.motorcycle + currentValue.motorcycle,
+      bicycle: accumulator.bicycle + currentValue.bicycle,
+    };
+  }, 0);
+
+const computeStatsAverage = (data) =>
+  data.reduce((accumulator, currentValue, index) => {
+    if (index == 0) {
+      return currentValue;
+    }
+    else if ((data.length - 1) == index) {
+      return {
+        airplane: parseInt((accumulator.airplane + currentValue.airplane) / data.length),
+        boat: parseInt((accumulator.boat + currentValue.boat) / data.length),
+        auto: parseInt((accumulator.auto + currentValue.auto) / data.length),
+        motorcycle: parseInt((accumulator.motorcycle + currentValue.motorcycle) / data.length),
+        bicycle: parseInt((accumulator.bicycle + currentValue.bicycle) / data.length),
+      };
+    }
+    else {
+      return {
+        airplane: accumulator.airplane + currentValue.airplane,
+        boat: accumulator.boat + currentValue.boat,
+        auto: accumulator.auto + currentValue.auto,
+        motorcycle: accumulator.motorcycle + currentValue.motorcycle,
+        bicycle: accumulator.bicycle + currentValue.bicycle,
+      }
+    }
+  }, 0);
+
 window.filterData = filterData;
 
 window.sortData = sortData;
 
 window.computeStats = {
+  computeStatsTotal: computeStatsTotal,
+  computeStatsAverage: computeStatsAverage,
 };
