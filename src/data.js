@@ -17,7 +17,7 @@ export const filterData = (data, filteredFirstYear, filteredSecondYear) =>
     }
   });
 
-const sortData = (data, sortBy, sortOrder) => {
+export const sortData = (data, sortBy, sortOrder) => {
   return data.sort((a, b) => {
     if (!sortBy && !sortOrder) {
       return 0;
@@ -37,7 +37,7 @@ const sortData = (data, sortBy, sortOrder) => {
   });
 };
 
-const computeStatsTotal = (data) =>
+export const computeStatsTotal = (data) => 
   data.reduce((accumulator, currentValue) => {
     if (accumulator == 0) {
       return currentValue;
@@ -51,7 +51,7 @@ const computeStatsTotal = (data) =>
     };
   }, 0);
 
-const computeStatsAverage = (data) =>
+export const computeStatsAverage = (data) =>
   data.reduce((accumulator, currentValue, index) => {
     if (index == 0) {
       return currentValue;
@@ -72,10 +72,18 @@ const computeStatsAverage = (data) =>
         auto: accumulator.auto + currentValue.auto,
         motorcycle: accumulator.motorcycle + currentValue.motorcycle,
         bicycle: accumulator.bicycle + currentValue.bicycle,
-      }
+      };
     }
   }, 0);
 
+// window = {
+//   filterData,
+//   sortData,
+//   computeStats: {
+//     computeStatsTotal,
+//     computeStatsAverage,
+//   }
+// };
 window.filterData = filterData;
 
 window.sortData = sortData;

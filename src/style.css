@@ -9,10 +9,11 @@ body {
 }
 
 .nameSite {
+  font-family: sans-serif;
   text-align: center;
   background-color: rgb(21, 57, 107);
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0.1px;
   margin-top: -8px;
 }
@@ -30,6 +31,7 @@ body {
 }
 
 select {
+  font-family: sans-serif;
   margin-right: 2%;
   width: 130px;
   height: 40px;
@@ -42,10 +44,12 @@ select:focus {
 }
 
 .selectsStyle>input {
+  outline: none;
   cursor: pointer;
 }
 
 .flexContainer {
+  font-family: sans-serif;
   margin-top: 10%;
   display: flex;
   flex-wrap: wrap;
@@ -75,7 +79,7 @@ select:focus {
 .baseboard {
   font-size: 20px;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background-color: #f9c642;
 }
 
@@ -89,7 +93,13 @@ select {
   width: 245px;
   height: 65px;
   font-size: 40px;
-  margin-top: 20px;
+  margin-right: 4%;
+  margin-top: 30px;
+}
+
+.selectsStyle>input {
+  height: 70px;
+  margin-top: 30px;
 }
 
   .a {
