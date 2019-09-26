@@ -9,6 +9,7 @@ const selectSortOrder = document.getElementById("sortOrder");
 const selectCalc = document.getElementById("totals");
 const form = document.getElementById("selects");
 const divResults = document.getElementById("results");
+const reload = document.getElementById("btnReload");
 
 const pupulateYears = () => {
   const years = window.filterData(data);
@@ -69,7 +70,12 @@ form.addEventListener("change", () => {
   event.preventDefault();
 });
 
-
-
-const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
-
+reload.addEventListener("click", () => {
+  firstYearSelect.value = "";
+  secondYearSelect.value = "";
+  selectSortBy.value = "";
+  selectSortOrder.value = "";
+  selectCalc.value = "";
+  injuriesScreen();
+  event.preventDefault();
+});

@@ -30,52 +30,157 @@ describe("sortData", () => {
     expect(typeof sortData).toBe("function");
   });
 
-  it("testing sort function", () => {
-    const mockeData = [
-      {
-        year: 2004
-      },
-      {
-        year: 2014
-      },
-      {
-        year: 2015
-      },
-      {
-        year: 2016
-      },
-    ];
-    expect(sortData(mockeData, "year", "desc")).toMatchObject(
-      [{
-        year: 2016
-      },
-      {
-        year: 2015
-      },
-      {
-        year: 2014
-      },
-      {
-        year: 2004
-      },
-      ]
-    );
-    expect(sortData(mockeData, "year", "asc")).toMatchObject(
-      [
+  describe("when sort by asc", () => {
+    it("should order the array", () => {
+      const mockeData = [
         {
-          year: 2004
+          year: 2018
         },
         {
           year: 2014
         },
         {
-          year: 2015
+          year: 2004
         },
         {
           year: 2016
         },
-      ]
+      ];
+      expect(sortData(mockeData, "year", "asc")).toMatchObject(
+        [
+          {
+            year: 2004
+          },
+          {
+            year: 2014
+          },
+          {
+            year: 2016
+          },
+          {
+            year: 2018
+          },
+        ]
+      );
+    });
+  });
+
+  describe("when sort by desc", () => {
+    it("should order the array", () => {
+      const mockeData = [
+        {
+          year: 2018
+        },
+        {
+          year: 2014
+        },
+        {
+          year: 2004
+        },
+        {
+          year: 2016
+        },
+      ];
+      expect(sortData(mockeData, "year", "desc")).toMatchObject(
+        [{
+          year: 2018
+        },
+        {
+          year: 2016
+        },
+        {
+          year: 2014
+        },
+        {
+          year: 2004
+        },
+        ]
+      );
+    });
+  });
+
+  describe("when missing params", () => {
+    it("should do nothing", () => {
+      const mockeData = [
+        {
+          year: 2018
+        },
+        {
+          year: 2014
+        },
+        {
+          year: 2004
+        },
+        {
+          year: 2016
+        },
+      ];
+      expect(sortData(mockeData)).toMatchObject(mockeData);
+    });
+  });
+
+});
+
+describe("computeStats.computeStatsTotal", () => {
+
+  it("is a function", () => {
+    expect(typeof computeStats.computeStatsTotal).toBe("function");
+  });
+
+  it("testing computeStatsTotal function", () => {
+    const cont = [{
+      airplane: 1,
+      auto: 2,
+      bicycle: 3,
+      boat: 4,
+      motorcycle: 5,
+    }, {
+      airplane: 1,
+      auto: 2,
+      bicycle: 3,
+      boat: 4,
+      motorcycle: 5,
+    }];
+    expect(computeStats.computeStatsTotal(cont)).toMatchObject(
+      {
+        airplane: 2,
+        auto: 4,
+        bicycle: 6,
+        boat: 8,
+        motorcycle: 10,
+      }
     );
-    expect(sortData(mockeData)).toMatchObject(mockeData);
+  });
+});
+
+describe("computeStats.computeStatsAverage", () => {
+
+  it("is a function", () => {
+    expect(typeof computeStats.computeStatsAverage).toBe("function");
+  });
+
+  it("testing computeStatsAverage function", () => {
+    const cont = [{
+      airplane: 1,
+      auto: 2,
+      bicycle: 3,
+      boat: 4,
+      motorcycle: 5,
+    }, {
+      airplane: 1,
+      auto: 2,
+      bicycle: 3,
+      boat: 4,
+      motorcycle: 5,
+    }];
+    expect(computeStats.computeStatsAverage(cont)).toMatchObject(
+      {
+        airplane: 1,
+        auto: 2,
+        bicycle: 3,
+        boat: 4,
+        motorcycle: 5,
+      }
+    );
   });
 });
