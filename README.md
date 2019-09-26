@@ -17,6 +17,10 @@ Apesar disso, os dados por si só são de pouca  utilidade. Para que essas grand
 
 O usuário é uma Assessoria de Segurança que visa a diminuição dos acidentes de trabalho de seus clientes. Para mostrar os dados de forma dinâmica e visualmente organizada para os clientes, foi criada uma página web que permite ao usuário filtrar os dados por ano e ordená-los, além de permitir o cálculo do total e média dos acidentes por categoria.
 
+* Protótipo de baixa fidelidade
+
+![Data-lovers](prototipo.jpeg)
+
 ## 3. Processo e decisões
 
 Neste projeto construimos uma página web para visualizar um conjunto (set) de dados que se adequa às necessidades do usuário. A página web criada permite **visualizar dados, filtrá-los, ordená-los e fazer um cálculo agregado**. 
