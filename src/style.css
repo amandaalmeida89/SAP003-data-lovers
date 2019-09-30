@@ -58,7 +58,7 @@ select:focus {
   text-align: center;
 }
 
-.a {
+.cards {
   border-radius: 30px;
   background-color: rgb(29, 109, 166);
   color: white;
@@ -87,22 +87,19 @@ select:focus {
   .screen {
     width: 100%;
   }
-
-select {
-  border: 1px solid gray;
-  width: 245px;
-  height: 65px;
-  font-size: 40px;
-  margin-right: 4%;
-  margin-top: 30px;
-}
-
-.selectsStyle>input {
-  height: 70px;
-  margin-top: 30px;
-}
-
-  .a {
+  select {
+    border: 1px solid gray;
+    width: 245px;
+    height: 65px;
+    font-size: 40px;
+    margin-right: 4%;
+    margin-top: 30px;
+  }
+  .selectsStyle>input {
+    height: 70px;
+    margin-top: 30px;
+  }
+  .cards {
     width: 70%;
     height: 70%;
     margin-bottom: 2%;
