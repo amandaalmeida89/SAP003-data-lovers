@@ -20,7 +20,7 @@ const pupulateYears = () => {
 
 const createCards = items => {
   const cards = items.map(item => `
-    <div class="a">
+    <div class="cards">
       <p>Year: ${item.year || "All selected"}</p>
       <p>Airplane: ${item.airplane || 0}</p>
       <p>Boat: ${item.boat || 0}</p>
