@@ -37,7 +37,7 @@ export const sortData = (data, sortBy, sortOrder) => {
   });
 };
 
-export const computeStatsTotal = (data) => 
+export const computeStatsTotal = (data) =>
   data.reduce((accumulator, currentValue) => {
     if (accumulator == 0) {
       return currentValue;
@@ -76,14 +76,6 @@ export const computeStatsAverage = (data) =>
     }
   }, 0);
 
-// window = {
-//   filterData,
-//   sortData,
-//   computeStats: {
-//     computeStatsTotal,
-//     computeStatsAverage,
-//   }
-// };
 window.filterData = filterData;
 
 window.sortData = sortData;
