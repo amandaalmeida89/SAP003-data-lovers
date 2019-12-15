@@ -19,27 +19,56 @@ const pupulateYears = () => {
 };
 
 const createCards = items => {
-  const cards = items.map(item => `
-    <div class="a">
-      <p>Year: ${item.year || "All selected"}</p>
-      <p>Airplane: ${item.airplane || 0}</p>
-      <p>Boat: ${item.boat || 0}</p>
-      <p>Auto: ${item.auto || 0}</p>
-      <p>Motorcycle: ${item.motorcycle || 0}</p>
-      <p>Bicycle: ${item.bicycle || 0}</p>
-    </div>
-  `).join("");
+  drawVisualization(items);
+  // const cards = items.map(item => `
+  //   <div class="a">
+  //     <p>Year: ${item.year || "All selected"}</p>
+  //     <p>Airplane: ${item.airplane || 0}</p>
+  //     <p>Boat: ${item.boat || 0}</p>
+  //     <p>Auto: ${item.auto || 0}</p>
+  //     <p>Motorcycle: ${item.motorcycle || 0}</p>
+  //     <p>Bicycle: ${item.bicycle || 0}</p>
+  //   </div>
+  // `).join("");
 
-  divResults.innerHTML = cards;
+  // divResults.innerHTML = cards;
 };
 
-const injuriesScreen = () => {
-  const getObjectInjuries = window.filterData(data);
-  createCards(getObjectInjuries);
+const drawVisualization = (items) => {
+  console.log(items);
+
+  const dataArr = [
+    ["Year", "Airplane", "Boat", "Auto", "Motorcycle", "Bicycle"]
+  ];
+
+  items.forEach(item => {
+    if (item.year) {
+      dataArr.push([item.year.toString(), item.airplane, item.boat, item.auto, item.motorcycle, item.bicycle]);
+    } else {
+      dataArr.push([item.year, item.airplane, item.boat, item.auto, item.motorcycle, item.bicycle]);
+    }
+  });
+
+  const data = google.visualization.arrayToDataTable(dataArr);
+
+  const options = {
+    title: "Total Injured Transportation People in the US",
+    vAxis: {title: "Injuries People"},
+    hAxis: {title: "Year"},
+    seriesType: "bars",
+    series: {5: {type: "line"} }
+  };
+
+  const chart = new google.visualization.ComboChart(divResults);
+  chart.draw(data, options);
 };
+
+google.charts.load("current", {"packages": ["corechart"]});
+google.charts.setOnLoadCallback(() => {
+  drawVisualization(window.filterData(data));
+});
 
 window.addEventListener("load", pupulateYears);
-window.addEventListener("load", injuriesScreen);
 
 form.addEventListener("change", () => {
   const firstYearSelected = firstYearSelect.value;
