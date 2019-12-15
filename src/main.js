@@ -43,9 +43,9 @@ const drawVisualization = (items) => {
 
   items.forEach(item => {
     if (item.year) {
-      dataArr.push([item.year.toString(), item.airplane, item.boat, item.auto, item.motorcycle, item.bicycle]);
+      dataArr.push([item.year.toString(), item.airplane || 0, item.boat || 0, item.auto || 0, item.motorcycle || 0, item.bicycle || 0]);
     } else {
-      dataArr.push([item.year, item.airplane, item.boat, item.auto, item.motorcycle, item.bicycle]);
+      dataArr.push([item.year || "All selected", item.airplane || 0, item.boat || 0, item.auto || 0, item.motorcycle || 0, item.bicycle || 0]);
     }
   });
 
