@@ -20,18 +20,6 @@ const pupulateYears = () => {
 
 const createCards = items => {
   drawVisualization(items);
-  // const cards = items.map(item => `
-  //   <div class="a">
-  //     <p>Year: ${item.year || "All selected"}</p>
-  //     <p>Airplane: ${item.airplane || 0}</p>
-  //     <p>Boat: ${item.boat || 0}</p>
-  //     <p>Auto: ${item.auto || 0}</p>
-  //     <p>Motorcycle: ${item.motorcycle || 0}</p>
-  //     <p>Bicycle: ${item.bicycle || 0}</p>
-  //   </div>
-  // `).join("");
-
-  // divResults.innerHTML = cards;
 };
 
 const drawVisualization = (items) => {
@@ -53,17 +41,31 @@ const drawVisualization = (items) => {
 
   const options = {
     title: "Total Injured Transportation People in the US",
-    vAxis: {title: "Injuries People"},
-    hAxis: {title: "Year"},
+    vAxis: { title: "Injuries People", scaleType: "log" },
+    hAxis: { 
+      slantedText: true,
+    },
     seriesType: "bars",
-    series: {5: {type: "line"} }
+    legend: {
+      position: "top",
+      alignment: "center",
+    },
+    bar: {
+      groupWidth: "100%",
+    },
+    chartArea: {
+      height: "80%",
+      width: "88%",
+      left: "10%",
+    },
+    series: { 5: { type: "line" } }
   };
 
   const chart = new google.visualization.ComboChart(divResults);
   chart.draw(data, options);
 };
 
-google.charts.load("current", {"packages": ["corechart"]});
+google.charts.load("current", { "packages": ["corechart"] });
 google.charts.setOnLoadCallback(() => {
   drawVisualization(window.filterData(data));
 });
