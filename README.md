@@ -27,7 +27,7 @@ Neste projeto construimos uma página web para visualizar um conjunto (set) de d
 
 O [conjunto  de dados](src/data/injuries/injuries.json) utilizado mostra o número de pessoas feridas em acidentes de transporte nos EUA, com dados anuais desde 1960 e categorizados por tipo de transporte (avião, barco, automóvel, moto e bicicleta). 
 
-A interface do usuário mostra os dados em cards, permite ao usuário filtrar e ordenar dados, além de calcular estatísticas (total de acidentados e média aritmética). A interface também é **responsiva**, ou seja, pode ser visualizada sem problemas a partir de diversos tamanhos de tela: celulares, tablets, notebooks, etc.
+A interface do usuário mostra os dados em grafico, permite ao usuário filtrar e ordenar dados, além de calcular estatísticas (total de acidentados e média aritmética).
 
 O produto apresenta os seguintes arquivos:
 

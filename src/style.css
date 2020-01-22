@@ -44,7 +44,7 @@ select:focus {
 .flex-container {
   margin-top: 5%;
   width: 100%;
-  height: 500px;
+  height: 100vh;
 }
 
 .baseboard {
@@ -61,15 +61,11 @@ select:focus {
 
 select {
   border: 1px solid gray;
-  width: 245px;
-  height: 65px;
-  font-size: 40px;
   margin-right: 4%;
   margin-top: 30px;
 }
 
 .selectsStyle>input {
-  height: 70px;
   margin-top: 30px;
 }
   .baseboard {

@@ -51,7 +51,7 @@ const drawVisualization = (items) => {
       alignment: "center",
     },
     bar: {
-      groupWidth: "100%",
+      groupWidth: "99%",
     },
     chartArea: {
       height: "80%",
