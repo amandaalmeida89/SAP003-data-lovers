@@ -46,7 +46,9 @@ const drawVisualization = (items) => {
 
   const options = {
     title: "Total Injured Transportation People in the US",
-    vAxis: { title: "Injuries People", scaleType: "log" },
+    vAxis: { title: "Injuries People",
+      scaleType: "log",
+    },
     hAxis: {
       slantedText: true,
     },
