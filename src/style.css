@@ -14,13 +14,19 @@ body {
   font-size: 20px;
   padding: 0.1px;
   margin-top: -8px;
+  margin-bottom: 8%;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 
 .selectsStyle {
-  display: flex;
-  flex-wrap: wrap;
+  display: inline-flex;
   justify-content: center;
-  margin-top: 5%;
+  width: 25.3%;
 }
 
 select {
@@ -42,9 +48,17 @@ select:focus {
 }
 
 .flex-container {
+  display: flex;
+  justify-content: center;
   margin-top: 5%;
   width: 100%;
-  height: 100vh;
+  height: auto;
+  margin-bottom: 5%;
+}
+
+.tableRow, .headerRow {
+  text-align: center;
+  font-size: 22px;
 }
 
 .baseboard {
@@ -58,16 +72,32 @@ select:focus {
   .screen {
     width: 100%;
   }
-
-select {
-  border: 1px solid gray;
-  margin-right: 4%;
-  margin-top: 30px;
-}
-
-.selectsStyle>input {
-  margin-top: 30px;
-}
+  select {
+    border: 1px solid gray;
+    margin-top: 30px;
+    font-size: 22px;
+    width: 150px;
+  }
+  .selectsStyle {
+    display: flex;
+    width: auto; 
+  }
+  form {
+    display: block;
+  }
+  .secondSelectsStyle {
+    margin-left: 2.5%;
+  }
+  .flex-container {
+    height: 73vh;
+    margin-bottom: 2%;
+  }
+  .selectsStyle>input {
+    margin-top: 30px;
+  }
+  .tableRow, .headerRow {
+    font-size: 25px;
+  }
   .baseboard {
     font-size: 30px;
   }

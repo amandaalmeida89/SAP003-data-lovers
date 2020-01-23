@@ -1,6 +1,7 @@
 import { INJURIES } from "./data/injuries/injuries.js";
 
 const data = INJURIES;
+const tableOrGraphic = document.getElementById("tableOrGraphic");
 const firstYearSelect = document.getElementById("firstFillYears");
 const secondYearSelect = document.getElementById("secondFillYears");
 const selectSortBy = document.getElementById("sortBy");
@@ -18,8 +19,12 @@ const pupulateYears = () => {
   secondYearSelect.innerHTML += options.reverse().join("");
 };
 
-const createCards = items => {
-  drawVisualization(items);
+const createCards = (items, isTable) => {
+  if (isTable === true) {
+    drawTable(items);
+  } else {
+    drawVisualization(items);
+  }
 };
 
 const drawVisualization = (items) => {
@@ -42,7 +47,7 @@ const drawVisualization = (items) => {
   const options = {
     title: "Total Injured Transportation People in the US",
     vAxis: { title: "Injuries People", scaleType: "log" },
-    hAxis: { 
+    hAxis: {
       slantedText: true,
     },
     seriesType: "bars",
@@ -65,42 +70,89 @@ const drawVisualization = (items) => {
   chart.draw(data, options);
 };
 
-google.charts.load("current", { "packages": ["corechart"] });
+google.charts.load("current", { "packages": ["corechart", "table"] });
 google.charts.setOnLoadCallback(() => {
-  drawVisualization(window.filterData(data));
+  if (false) {
+    drawVisualization(window.filterData(data));
+  } else {
+    drawTable(window.filterData(data));
+  }
 });
+
+const drawTable = (items) => {
+  console.log(items);
+
+  const dataArr = [];
+
+  items.forEach(item => {
+    if (item.year) {
+      dataArr.push([item.year.toString(), item.airplane || 0, item.boat || 0, item.auto || 0, item.motorcycle || 0, item.bicycle || 0]);
+    } else {
+      dataArr.push([item.year || "All selected", item.airplane || 0, item.boat || 0, item.auto || 0, item.motorcycle || 0, item.bicycle || 0]);
+    }
+  });
+
+  console.log(dataArr);
+
+  const data = new google.visualization.DataTable();
+  data.addColumn("string", "Anos");
+  data.addColumn("number", "Airplane");
+  data.addColumn("number", "Boat");
+  data.addColumn("number", "Auto");
+  data.addColumn("number", "Motorcycle");
+  data.addColumn("number", "Bicycle");
+  data.addRows(dataArr);
+
+  const cssClassNames = {tableCell: "tableRow", headerRow: "headerRow"};
+
+  const options = {
+    "allowHtml": true,
+    "cssClassNames": cssClassNames,
+    showRowNumber: false,
+    width: "80%",
+    height: "auto",
+  };
+
+  const table = new google.visualization.Table(divResults);
+
+  table.draw(data, options);
+};
 
 window.addEventListener("load", pupulateYears);
 
 form.addEventListener("change", () => {
+  const tableOrGraphicSelected = tableOrGraphic.value;
   const firstYearSelected = firstYearSelect.value;
   const secondYearSelected = secondYearSelect.value;
   const sortBySelected = selectSortBy.value;
   const sortOrderSelected = selectSortOrder.value;
   const calcSelected = selectCalc.value;
 
-  if (secondYearSelected >= firstYearSelected) {
-    const resultsFilter = window.filterData(data, firstYearSelected, secondYearSelected);
-    if (calcSelected === "total") {
-      const total = window.computeStats.computeStatsTotal(resultsFilter);
-      createCards([total]);
+  const typeCharts = (isTable) => {
+    if (secondYearSelected >= firstYearSelected) {
+      const resultsFilter = window.filterData(data, firstYearSelected, secondYearSelected);
+      if (calcSelected === "total") {
+        const total = window.computeStats.computeStatsTotal(resultsFilter);
+        createCards([total], isTable);
+      }
+      else if (calcSelected === "average") {
+        const average = window.computeStats.computeStatsAverage(resultsFilter);
+        createCards([average], isTable);
+      }
+      else {
+        const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
+        createCards(resultsOrder, isTable);
+      }
+    } else {
+      alert("Second year is expected to be at or above");
     }
-    else if (calcSelected === "average") {
-      const average = window.computeStats.computeStatsAverage(resultsFilter);
-      createCards([average]);
-    }
-    else {
-      const resultsOrder = window.sortData(resultsFilter, sortBySelected, sortOrderSelected);
-      createCards(resultsOrder);
-    }
-  }
-  else {
-    alert("Second year is expected to be at or above");
-  }
-  event.preventDefault();
+  };
+
+  tableOrGraphicSelected === "tabela" ? typeCharts(true) : typeCharts(false); 
 });
 
 reload.addEventListener("click", () => {
+  tableOrGraphic.value = "";
   firstYearSelect.value = "";
   secondYearSelect.value = "";
   selectSortBy.value = "";
