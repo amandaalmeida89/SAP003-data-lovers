@@ -72,11 +72,8 @@ const drawVisualization = (items) => {
 
 google.charts.load("current", { "packages": ["corechart", "table"] });
 google.charts.setOnLoadCallback(() => {
-  if (false) {
-    drawVisualization(window.filterData(data));
-  } else {
-    drawTable(window.filterData(data));
-  }
+  drawTable(window.filterData(data));
+  
 });
 
 const drawTable = (items) => {
@@ -114,6 +111,17 @@ const drawTable = (items) => {
   };
 
   const table = new google.visualization.Table(divResults);
+
+  const formatter = new google.visualization.NumberFormat(
+    {groupingSymbol: ".", fractionDigits: 0
+
+    });
+    
+  formatter.format(data, 1); 
+  formatter.format(data, 2); 
+  formatter.format(data, 3); 
+  formatter.format(data, 4); 
+  formatter.format(data, 5); 
 
   table.draw(data, options);
 };
