@@ -1,5 +1,6 @@
 body {
   background-color: #e4e2e0;
+  margin: 0;
 }
 
 .screen {
@@ -34,7 +35,6 @@ form {
 .selectsStyle {
   display: inline-flex;
   justify-content: center;
-  width: 25.3%;
 }
 
 select {
